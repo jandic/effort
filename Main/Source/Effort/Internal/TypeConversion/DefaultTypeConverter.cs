@@ -91,6 +91,19 @@ namespace Effort.Internal.TypeConversion
                 return true;
             }
 
+            if (string.Equals("geometry", primitiveType.Name, StringComparison.InvariantCultureIgnoreCase))
+            {
+                result = typeof(NMemory.Spatial.DbGeometry);
+                return true;
+            }
+
+            if (string.Equals("geography", primitiveType.Name, StringComparison.InvariantCultureIgnoreCase))
+            {
+                result = typeof(NMemory.Spatial.DbGeography);
+                return true;
+            }
+
+
             return false;
         }
     }
